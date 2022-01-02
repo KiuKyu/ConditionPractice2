@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--    ax2 + bx + c = 0-->
+</body>
+<script>
+    function phuongTrinhBacHai() {
+        let a = parseInt(prompt('Nhập số a: '));
+        let b = parseInt(prompt('Nhập số b: '));
+        let c = parseInt(prompt('Nhập số c: '));
+        let bPhay = b / 2;
+        let x1 = '';
+        let x2 = '';
+        let deltaPhay = '';
+        let delta = '';
+        let notice = '';
+
+        if (b % 2 == 0) {
+            deltaPhay = Math.pow(b, 2) - a * c;
+            if (deltaPhay < 0) {
+                notice += 'Phương trình vô nghiệm';
+            } else if (deltaPhay == 0) {
+                x1 = x2 = -bPhay / a;
+                // x2 = x1;
+                notice += 'x1 = ' + x1 + ' x2 = ' + x2;
+            } else {
+                x1 = (-bPhay - Math.sqrt(deltaPhay)) / a;
+                x2 = (-bPhay + Math.sqrt(deltaPhay)) / a;
+                notice += 'x1 = ' + x1 + ' x2 = ' + x2;
+
+            }
+        } else {
+            delta = Math.pow(b, 2) - 4 * a * c;
+            if (delta < 0) {
+                notice += 'Phương trình vô nghiệm';
+            } else if (delta == 0) {
+                x1 = x2 = -b / 2 * a;
+                notice += 'x1 = ' + x1 + ' x2 = ' + x2;
+            } else {
+                x1 = (-b - Math.sqrt(delta)) / 2 * a;
+                x2 = (-b + Math.sqrt(delta)) / 2 * a;
+                notice += 'x1 = ' + x1 + ' x2 = ' + x2;
+            }
+        }
+
+        alert(notice);
+    }
+
+    phuongTrinhBacHai();
+</script>
+</html>

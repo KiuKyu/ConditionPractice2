@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form>
+        <!--Tổng thu nhập-->
+        <label for="tongThuNhap">Tổng thu nhập</label>
+        <input type="number" id="tongThuNhap">
+        <!--Các khoản giảm trừ-->
+        <label for="khoanGiamTru">Các khoản giảm trừ</label>
+        <input type="number" id="khoanGiamTru">
+        <!--Khoản được miễn-->
+        <label for="khoanDuocMien">Các khoản được miễn</label>
+        <input type="number" id="khoanDuocMien">
+        <!-- Thuế suất -->
+        <label for="thueSuat">Thuế suất</label>
+        <input type="number" id="thueSuat">
+        <!--Button submit-->
+        <label for="tinhToan">Tính toán</label>
+        <input type="submit" id="tinhToan" onclick="tinhToan()">
+    </form>
+</body>
+<script>
+    // Thuế thu nhập cá nhân phải nộp = Thu nhập tính thuế x Thuế suất
+    // Thu nhập tính thuế = Thu nhập chịu thuế - Các khoản giảm trừ
+    // Thu nhập chịu thuế = Tổng thu nhập - Các khoản được miễn
+
+    function tinhToan() {
+        let tongThuNhap = document.getElementById('tongThuNhap').value;
+        let khoanDuocMien = document.getElementById('khoanDuocMien').value;
+        let khoanGiamTru = document.getElementById('khoanGiamTru').value;
+        let thueSuat = document.getElementById('thueSuat').value;
+
+        let thuNhapChiuThue = tongThuNhap - khoanDuocMien;
+        let thuNhapTinhThue = thuNhapChiuThue - khoanGiamTru;
+        let tongTienNop = thuNhapTinhThue * thueSuat;
+
+        alert('Số tiền cần nộp là ' + tongTienNop);
+    }
+
+</script>
+</html>
